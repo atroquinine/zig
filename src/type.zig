@@ -28,6 +28,7 @@ pub const Type = extern union {
     }
 
     pub fn zigTypeTagOrPoison(ty: Type) error{GenericPoison}!std.builtin.TypeId {
+        std.debug.print("{}\n", .{ty.tag()});
         switch (ty.tag()) {
             .generic_poison => return error.GenericPoison,
 
